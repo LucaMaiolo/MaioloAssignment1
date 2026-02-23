@@ -14,8 +14,7 @@ createServer(async function (request: IncomingMessage, response: ServerResponse)
     await initialized;
 
     response.writeHead(200, { 'Content-Type': 'text/plain' });
-    response.write
-    response.end('Hello Aadi. Who did you fight?');
+    response.end('Hello World <yourname>');
 }).listen(port, () => {
     console.log(`Server running at http://localhost:${port}/`);
 });

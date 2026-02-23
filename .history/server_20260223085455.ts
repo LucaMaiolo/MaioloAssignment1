@@ -8,14 +8,13 @@ import { DatabaseError } from './DatabaseError.js';
 
 let initialized = model.initialize();
 
-const port = 1339;
+const port = 3000;
 
 createServer(async function (request: IncomingMessage, response: ServerResponse) : Promise<void> {
     await initialized;
 
     response.writeHead(200, { 'Content-Type': 'text/plain' });
-    response.write
-    response.end('Hello Aadi. Who did you fight?');
+    response.end('Hello World <yourname>');
 }).listen(port, () => {
     console.log(`Server running at http://localhost:${port}/`);
 });
