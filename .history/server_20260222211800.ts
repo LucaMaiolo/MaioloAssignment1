@@ -1,13 +1,11 @@
 import { createServer, IncomingMessage, ServerResponse } from 'http';
-import * as model from "./jobModelMongoDB.js";
+export * as model from "./jobModelMongoDB.js"
 
 let initialized = model.initialize();
 
 const port = 1339;
 
 createServer(async function (request: IncomingMessage, response: ServerResponse) : Promise<void> {
-    await initialized;
-
     response.writeHead(200, { 'Content-Type': 'text/plain' });
     response.end('Hello World <yourname>');
 }).listen(port, () => {
