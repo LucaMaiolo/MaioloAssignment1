@@ -18,19 +18,6 @@ createServer(async function (request: IncomingMessage, response: ServerResponse)
         'Montreal, QC', 80));
     response.write(await handleCreateJob('Mow the lawn', 'Front and back yard.',
         'Laval, QC', 60));
-    response.write(await handleCreateJob('Walk the dog', 'Walk my dog for 30 minutes.', "Dorval, Qc",10));
-    response.write(await handleCreateJob('', 'Bad input demo', 'Nowhere', -1)); // expect failure
-
-    //read
-    response.write(await handleGetAllJobs());
-    response.write(await handleGetJobByTitle("Mow the lawn"));
-    
-    //update
-    response.write(await handleUpdateJob("Fix leaky faucet", 60, "completed"));
-
-    //delete
-    response.write(await handelDeleteJob("Walk the dog"));
-    
 
     response.end('Hello Aadi. Who did you fight?');
 }).listen(port, () => {
