@@ -7,11 +7,12 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Launch Program",
-      "skipFiles": ["<node_internals>/**"],
-      "runtimeArgs": ["--env-file=.env"],
-      "program": "${workspaceFolder}/server.ts",
-      "outFiles": ["${workspaceFolder}/**/*.js"]
+      "name": "Launch Server",
+      "runtimeArgs": ["--loader", "ts-node/esm"],
+      "args": ["server.ts"],
+      "envFile": "${workspaceFolder}/.env",
+      "restart": true,
+      "console": "integratedTerminal"
     }
   ]
 }
