@@ -6,7 +6,7 @@ import { DatabaseError } from './DatabaseError.js';
 
 let initialized = model.initialize();
 
-const port = 3000;
+const port = 1335;
 
 createServer(async function (request: IncomingMessage, response: ServerResponse) : Promise<void> {
     await initialized;
