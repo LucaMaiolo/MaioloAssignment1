@@ -1,5 +1,5 @@
 import { createServer, IncomingMessage, ServerResponse } from 'http';
-import * as model from './jobModelMongoDB.js'
+import * as model from "./jobModelMongoDB.js";
 import { InvalidInputError } from './InvalidInputError.js';
 import { DatabaseError } from './DatabaseError.js';
 
