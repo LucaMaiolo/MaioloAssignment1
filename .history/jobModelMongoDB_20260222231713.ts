@@ -104,6 +104,7 @@ async function updateJob(title:string, budget: number, status: string):Promise<b
         if (err instanceof DatabaseError || err instanceof InvalidInputError) throw err;
         throw new DatabaseError('Error updating job');
       }
+
 }
 
 async function deleteJob(title:string):Promise<boolean> {
@@ -123,5 +124,5 @@ async function deleteJob(title:string):Promise<boolean> {
       }
 }
 
-export {initialize, addJob, getJobByTitle,getAllJobs,deleteJob,updateJob};
+export {initialize, addJob, getJobByTitle,getAllJobs,deleteJob};
 export type { Job };
