@@ -2,7 +2,7 @@
   "name": "assignment1-maiolo",
   "version": "1.0.0",
   "description": "",
-  "main": "server.ts",
+  "main": "server.js",
   "scripts": {
     "test": "jest --verbose ./tests"
   },
