@@ -57,4 +57,4 @@ async function addJob(title:string,description:string,location:string,budget:num
 }
 
 
-export {initialize, addJob}
+export {initialize}
