@@ -2,7 +2,6 @@ import { createServer, IncomingMessage, ServerResponse } from 'http';
 import * as model from "./jobModelMongoDB.js";
 import { InvalidInputError } from './InvalidInputError.js';
 import { DatabaseError } from './DatabaseError.js';
-import type { Tracing } from 'trace_events';
 
 
 let initialized = model.initialize();
@@ -70,36 +69,17 @@ async function handleGetJobByTitle(title: string): Promise<string>{
 
 async function handleUpdateJob(title:string, budget: number, status: string): Promise<String>{
     try {
-        await model.updateJob(title,budget,status);
-        return `Job updated with name ${title}!`
+        const result = await model.updateJob(title, budget, status);
+        return `Job found with name ${result.title}!`
     }catch (err: unknown) {
         if (err instanceof InvalidInputError) {
           console.warn('Invalid title: ' + title);
-          return `failed — invalid tile: ${title}\n`;
+          return `getJobByTItle failed — invalid tile: ${title}\n`;
         } else if (err instanceof DatabaseError) {
           console.error('DB error in getJobByTitle');
-          return `no job found with id ${title}\n`;
+          return `getJobByTitle: no job found with id ${title}\n`;
         }
         return 'Unexpected error in getJobById\n';
     }
-}
-
-async function handelDeleteJob(title:string):Promise<string> {
-    try{
-        await model.deleteJob(title);
-        return `Succesfully deleted ${title}`
-    }
-    catch (err:unknown){
-        if (err instanceof InvalidInputError){
-            console.warn("Invalid name to delete")
-            return `deleteJob failed, invalid title`
-        }
-        else if (err instanceof DatabaseError)
-        {
-            console.error("DB error in deleteJob")
-            return `Job ${title} not found in db`
-        }
-        return "unexpected error in deleteJob"
-
-    }
+    
 }

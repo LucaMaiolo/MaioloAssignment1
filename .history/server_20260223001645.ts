@@ -84,7 +84,7 @@ async function handleUpdateJob(title:string, budget: number, status: string): Pr
     }
 }
 
-async function handelDeleteJob(title:string):Promise<string> {
+async function handelDeleteJob(title:string) {
     try{
         await model.deleteJob(title);
         return `Succesfully deleted ${title}`
@@ -96,10 +96,8 @@ async function handelDeleteJob(title:string):Promise<string> {
         }
         else if (err instanceof DatabaseError)
         {
-            console.error("DB error in deleteJob")
-            return `Job ${title} not found in db`
+            
         }
-        return "unexpected error in deleteJob"
 
     }
 }
